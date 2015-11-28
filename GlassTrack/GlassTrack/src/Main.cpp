@@ -155,7 +155,7 @@ int main(int argc, char* argv[])
 				// *Cullen/Capstone* Inserted a timestamp into the output and put in some code to write to a file.
 				// Display the gaze information until the user quits.
 				QLFrameData frameData;
-				while ((_kbhit() == 0) || (_getch() != 27))
+				while ((_kbhit() == 0) || (_getch() != 27) || (_getch() != 113))
 				{
 					QLDevice_GetFrame(deviceId, 25, &frameData);
 
