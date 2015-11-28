@@ -168,8 +168,8 @@ bool AutoCalibrate(
     // will only be valid over the area of this window. If the entire screen
     // area is to be calibrated then this window should be set to the screen
     // size. 
-    int windowWidth = 1024;
-    int windowHeight = 768;
+    int windowWidth = 512;
+    int windowHeight = 384;
     const char* windowName = "Calibration Window";
     IplImage* displayImage = cvCreateImage(cvSize(windowWidth, windowHeight), 8, 3);
     cvNamedWindow(windowName, CV_WINDOW_AUTOSIZE);
