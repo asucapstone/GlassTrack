@@ -148,14 +148,16 @@ int main(int argc, char* argv[])
 				QLDevice_ApplyCalibration(deviceId, calibrationId);
 
 				//*Cullen/Capstone* These variables are going to be used to calculate a timestamp offset so that the timestamp begins at zero.
+				//					Also, a new frame limit for the progam until we are able to send a kill signal to this thread.
 				bool toggle = 1;
 				double timestampOffset;
 				double adjustedTimestamp;
+				int frameLimit = 0;
 
 				// *Cullen/Capstone* Inserted a timestamp into the output and put in some code to write to a file.
 				// Display the gaze information until the user quits.
 				QLFrameData frameData;
-				while ((_kbhit() == 0) || (_getch() != 27) || (_getch() != 113))
+				while ((_kbhit() == 0) || (_getch() != 27) || (_getch() != 113) || (frameLimit <= 2500))
 				{
 					QLDevice_GetFrame(deviceId, 25, &frameData);
 
